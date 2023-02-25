@@ -12,17 +12,12 @@ header {
 }
 
 nav {
-    /* border: 5px dotted black; */
     height: inherit;
-    /* width: max-content, min-content, 50px, 50%; */
     display: flex;
-    /* justify-content: start; */
-    /* justify-content: start; end; center, space-around, space-between, space-evenly*/
     align-items: center;
 }
 
 nav > a {
-    /* относится к всем ссылкам навигации и убирает подчеркивание */
     text-decoration: none;
     color: black;
     padding: 0 30px;
@@ -31,14 +26,12 @@ nav > a {
 
 .about_us {
     display: flex;
-    /* flex-direction: row-reverse; */
     justify-content: center;
 }
 
 .about_us img {
     width: 300px;
     height: 300px;
-    /* object-fit: contain; */
     object-fit: cover;
     object-position: top;
 }
@@ -67,7 +60,6 @@ nav > a {
 
 .my_game input, .my_game button {
     border: none;
-    /* background: grey; */
     margin: 5px;
     min-height: 30px;
 }
