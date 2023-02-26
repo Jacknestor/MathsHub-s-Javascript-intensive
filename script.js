@@ -43,9 +43,9 @@ const startGameFunc = () => {
 }
 btnGame.addEventListener("click", startGameFunc)
 userAnswer.addEventListener("keydown", (e) => {
-    if(e.key === "Enter") {
+    if (e.key === "Enter") {
         startGameFunc()
-    } else if(e.key === "Escape") {
+    } else if (e.key === "Escape") {
         userAnswer.blur()
     }
 })
@@ -73,5 +73,31 @@ const eventFunc = (e) => {
 for (let i = 0; i < choosedEl.length; i++) {
     choosedEl[i].addEventListener("click", eventFunc)
 }
-choosedEl[2].removeEventListener("click", eventFunc)
 
+const postsBlock = document.querySelector(".posts_block-container")
+const showPostsBTN = document.querySelector(".posts_block button")
+
+function addPost(title, body) {
+    const postsTitle = document.createElement("h3")
+    const postsBody = document.createElement("span")
+    const postsItem = document.createElement("p")
+
+    postsTitle.innerText = title
+    postsBody.innerText = body
+
+    postsItem.append(postsTitle, postsBody)
+    postsBlock.append(postsItem)
+}
+
+function getPosts() {
+    fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(data => {
+        for (item of data) {
+            addPost(item.title, item.body)
+        }
+    })
+    .catch(err => console.log(err.message))
+}
+
+showPostsBTN.onclick = () => getPosts()
